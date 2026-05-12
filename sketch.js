@@ -1,5 +1,6 @@
 let deadMap, aliveMap;
 let isAlive = false;
+let activeArea = null;
 
 let areas = [
   { name: 'A1', x: 300, y: 320, clicks: 0, alive: false },
@@ -19,6 +20,16 @@ function setup() {
 }
 
 function draw() {
+  //ui popup
+   if (activeArea) {
+    background(255);
+    fill(0);
+    textAlign(CENTER, CENTER);
+    textSize(24);
+    text("underwork", width / 2, height / 2);
+    return;
+  }
+  ///
   background(10);
 
   let imgW = width * 0.8;
@@ -35,9 +46,7 @@ function draw() {
   }
 }
 
-
 function drawArea(a) {
-
 
   if (a.alive) {
     fill(0, 255, 100, 150);
@@ -61,7 +70,7 @@ function drawArea(a) {
 function mousePressed() {
   for (let a of areas) {
 
-    
+   
     if (dist(mouseX, mouseY, a.x, a.y) < 40) {
 
       a.clicks++;
@@ -69,7 +78,15 @@ function mousePressed() {
       if (a.clicks >= 3) {
         a.alive = true;
         isAlive = true;
+        activeArea = a;
       }
     }
+  }
+ 
+}
+
+function keyPressed() {
+  if (key === 'q' || key === 'Q') {
+    activeArea = null;
   }
 }
