@@ -1,7 +1,9 @@
-let mapImg;
+let deadMap, aliveMap;
+let isAlive = false;
 
 function preload() {
-  mapImg = loadImage('assets/MP_Map.png');
+  deadMap = loadImage('assets/mp_dead.png');
+  aliveMap = loadImage('assets/mp_alive.png');
 }
 
 function setup() {
@@ -10,10 +12,19 @@ function setup() {
 }
 
 function draw() {
-  background(20);
+  background(10);
 
-  let imgW = width * 0.9;
-  let imgH = (mapImg.height / mapImg.width) * imgW;
+  let imgW = width * 0.8;
+  let imgH = (deadMap.height / deadMap.width) * imgW;
 
-  image(mapImg, width / 2, height / 2, imgW, imgH);
+  if (isAlive) {
+    image(aliveMap, width / 2, height / 2, imgW, imgH);
+  } else {
+    image(deadMap, width / 2, height / 2, imgW, imgH);
+  }
+}
+
+// click → revive
+function mousePressed() {
+  isAlive = true;
 }
