@@ -47,6 +47,10 @@ function setup() {
 }
 
 function draw() {
+  if (phase <= 2) {
+  drawStory(phase);
+  return;
+}
   //ui popup
    if (activeArea) {
     background(255);
@@ -115,5 +119,29 @@ function mousePressed() {
 function keyPressed() {
   if (key === 'q' || key === 'Q') {
     activeArea = null;
+  }
+}
+
+function drawStory(idx) {
+  background(10, 10, 15);
+  let s = storySlides[idx];
+
+  textAlign(CENTER, CENTER);
+  fill(255);
+
+  if (s.title) {
+    textSize(48);
+    text(s.title, width/2, height/2 - 30);
+
+    textSize(24);
+    fill(170);
+    text(s.sub, width/2, height/2 + 30);
+  } else {
+    textSize(18);
+    let startY = height/2 - 60;
+
+    for (let i = 0; i < s.body.length; i++) {
+      text(s.body[i], width/2, startY + i * 30);
+    }
   }
 }
