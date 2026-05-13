@@ -1,8 +1,34 @@
 let deadMap, aliveMap;
 let isAlive = false;
 let activeArea = null;
-let showIntro = true; 
+let phase = 0;
 
+let storySlides = [
+  {
+    title: 'Madhya Pradesh',
+    sub: 'Year 2150',
+    body: null
+  },
+  {
+    title: null,
+    body: [
+      'Tourism has collapsed.',
+      'Nature is fading.',
+      'Cities are abandoned.',
+      'The land that once thrived now lies silent.'
+    ]
+  },
+  {
+    title: null,
+    body: [
+      'But there is still hope.',
+      '',
+      'Four sacred zones hold the last pulse of life.',
+      '',
+      'You must revive them.'
+    ]
+  }
+];
 let areas = [
   { name: 'A1', x: 300, y: 320, clicks: 0, alive: false },
   { name: 'A2', x: 420, y: 260, clicks: 0, alive: false },
@@ -21,27 +47,6 @@ function setup() {
 }
 
 function draw() {
-  //menu
-  if (showIntro) {
-  background(20);
-
-  fill(255);
-  textAlign(CENTER, CENTER);
-
-  textSize(26);
-  text("WELCOME", width / 2, height / 2 - 80);
-
-  textSize(14);
-  text("Click nodes 3 times to activate regions", width / 2, height / 2 - 20);
-  text("Press Q to go back from UI", width / 2, height / 2 + 10);
-  text("Click on a node to open its panel", width / 2, height / 2 + 40);
-
-  textSize(12);
-  text("Press ENTER to start", width / 2, height / 2 + 100);
-
-  return;
-}
-  //...............
   //ui popup
    if (activeArea) {
     background(255);
@@ -110,8 +115,5 @@ function mousePressed() {
 function keyPressed() {
   if (key === 'q' || key === 'Q') {
     activeArea = null;
-  }
-   if (keyCode === ENTER) {
-    showIntro = false;
   }
 }
