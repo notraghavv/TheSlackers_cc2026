@@ -99,9 +99,18 @@ function drawArea(a) {
 }
 //click to revive
 function mousePressed() {
-  for (let a of areas) {
 
-   
+  // story slides
+  if (phase <= 2) {
+    phase++;   // move to next slide
+
+    // stop at map (phase 3)
+    if (phase > 3) phase = 3;
+
+    return;
+  }
+
+  for (let a of areas) {
     if (dist(mouseX, mouseY, a.x, a.y) < 40) {
 
       a.clicks++;
@@ -113,7 +122,6 @@ function mousePressed() {
       }
     }
   }
- 
 }
 
 function keyPressed() {
@@ -123,6 +131,7 @@ function keyPressed() {
 }
 
 function drawStory(idx) {
+  
   background(10, 10, 15);
   let s = storySlides[idx];
 
@@ -144,4 +153,8 @@ function drawStory(idx) {
       text(s.body[i], width/2, startY + i * 30);
     }
   }
+
+textSize(12);
+fill(180);
+text("Click to continue →", width/2, height - 40);
 }
