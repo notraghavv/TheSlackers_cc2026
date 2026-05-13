@@ -7,8 +7,8 @@ let currentMusic;
 let areaContent = {
   A1: ["Indore – Food capital", "Ujjain – Spiritual hub", "Mandu – Historic forts"],
   A2: ["Pench – Tiger reserve", "Kanha – Dense forests", "Amarkantak – River origin"],
-  A3: ["Jabalpur – Marble rocks", "Bandhavgarh – Wildlife", "Amarkantak – Hills"],
-  A4: ["Gwalior – Fort city", "Orchha – Heritage temples", "Shivpuri – Natural beauty"]
+  A3: ["Jabalpur – Marble rocks", "Bandhavgarh – Wildlife", "Panchmarhi – Hills"],
+  A4: ["Gwalior – Fort city", "Orchha – Heritage temples", "Bhopal – Capital City"]
 };
 //
 
