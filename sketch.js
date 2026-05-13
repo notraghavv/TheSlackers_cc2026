@@ -26,57 +26,57 @@ let areaData = {
   A1: {
     regionFact: 'Gateway of ancient trade routes and the spiritual heartland of the west.',
     slides: [
-      { type: 'city',  name: 'Indore',        fact: 'Cleanest city in India 7 years running.',         img: 'indore'  },
-      { type: 'place', name: 'Rajwada',       fact: 'A 200-year-old royal palace in the city heart.',  img: 'indore'  },
-      { type: 'place', name: 'Sarafa',        fact: 'Famous night food bazaar, alive after midnight.', img: 'indore'  },
-      { type: 'city',  name: 'Ujjain',        fact: 'One of the 7 sacred cities of Hinduism.',         img: 'ujjain'  },
-      { type: 'place', name: 'Mahakaleshwar', fact: 'One of the 12 Jyotirlingas of Shiva.',            img: 'ujjain'  },
-      { type: 'place', name: 'Kshipra Ghats', fact: 'Ancient bathing ghats on the Kshipra river.',     img: 'ujjain'  },
-      { type: 'city',  name: 'Mandu',         fact: 'City of Joy — a ruined kingdom on a plateau.',    img: 'mandu'   },
-      { type: 'place', name: 'Jahaz Mahal',   fact: 'A palace built like a ship between two lakes.',   img: 'mandu'   },
-      { type: 'place', name: 'Rani Roopmati', fact: 'A pavilion of love overlooking the Narmada.',     img: 'mandu'   }
+      { type: 'city',  name: 'Indore',        fact: 'Cleanest city in India 7 years running.',         img: 'indore'   },
+      { type: 'place', name: 'Rajwada',        fact: 'A 200-year-old royal palace in the city heart.',  img: 'indore_1' },
+      { type: 'place', name: 'Sarafa',         fact: 'Famous night food bazaar, alive after midnight.', img: 'indore_2' },
+      { type: 'city',  name: 'Ujjain',         fact: 'One of the 7 sacred cities of Hinduism.',         img: 'ujjain'   },
+      { type: 'place', name: 'Mahakaleshwar',  fact: 'One of the 12 Jyotirlingas of Shiva.',            img: 'ujjain_1' },
+      { type: 'place', name: 'Kshipra Ghats',  fact: 'Ancient bathing ghats on the Kshipra river.',     img: 'ujjain_2' },
+      { type: 'city',  name: 'Mandu',          fact: 'City of Joy — a ruined kingdom on a plateau.',    img: 'mandu'    },
+      { type: 'place', name: 'Jahaz Mahal',    fact: 'A palace built like a ship between two lakes.',   img: 'mandu_1'  },
+      { type: 'place', name: 'Rani Roopmati',  fact: 'A pavilion of love overlooking the Narmada.',     img: 'mandu_2'  }
     ]
   },
   A2: {
     regionFact: 'The dense southern canopy where forests breathe and mighty rivers are born.',
     slides: [
-      { type: 'city',  name: 'Pench',       fact: "Inspiration for Rudyard Kipling's Jungle Book.",  img: 'pench'      },
-      { type: 'place', name: 'Tiger Trail', fact: 'Home to over 50 Bengal tigers in the wild.',      img: 'pench'      },
-      { type: 'place', name: 'Pench River', fact: 'The river splits the forest into two worlds.',    img: 'pench'      },
-      { type: 'city',  name: 'Kanha',       fact: 'Largest national park in Central India.',         img: 'kanha'      },
-      { type: 'place', name: 'Barasingha',  fact: 'Kanha saved the swamp deer from extinction.',     img: 'kanha'      },
-      { type: 'place', name: 'Bamni Dadar', fact: 'Sunset point — animals gather at dusk here.',     img: 'kanha'      },
-      { type: 'city',  name: 'Amarkantak',  fact: 'Origin of the sacred Narmada and Son rivers.',    img: 'amarkantak' },
-      { type: 'place', name: 'Narmada Kund',fact: 'The sacred spring where the river begins.',       img: 'amarkantak' },
-      { type: 'place', name: 'Kapildhara',  fact: 'A 100ft waterfall deep in the forest.',           img: 'amarkantak' }
+      { type: 'city',  name: 'Pench',        fact: "Inspiration for Rudyard Kipling's Jungle Book.",  img: 'pench'        },
+      { type: 'place', name: 'Tiger Trail',  fact: 'Home to over 50 Bengal tigers in the wild.',      img: 'pench_1'      },
+      { type: 'place', name: 'Pench River',  fact: 'The river splits the forest into two worlds.',    img: 'pench_2'      },
+      { type: 'city',  name: 'Kanha',        fact: 'Largest national park in Central India.',         img: 'kanha'        },
+      { type: 'place', name: 'Barasingha',   fact: 'Kanha saved the swamp deer from extinction.',     img: 'kanha_1'      },
+      { type: 'place', name: 'Bamni Dadar',  fact: 'Sunset point — animals gather at dusk here.',     img: 'kanha_2'      },
+      { type: 'city',  name: 'Amarkantak',   fact: 'Origin of the sacred Narmada and Son rivers.',    img: 'amarkantak'   },
+      { type: 'place', name: 'Narmada Kund', fact: 'The sacred spring where the river begins.',       img: 'amarkantak_1' },
+      { type: 'place', name: 'Kapildhara',   fact: 'A 100ft waterfall deep in the forest.',           img: 'amarkantak_2' }
     ]
   },
   A3: {
     regionFact: 'The eastern wilds, defined by white marble gorges, mist, and ancient wilderness.',
     slides: [
-      { type: 'city',  name: 'Jabalpur',       fact: 'City of marble rocks and the Narmada gorge.',      img: 'jabalpur'    },
-      { type: 'place', name: 'Bhedaghat',      fact: '100ft white marble cliffs on either side of river.', img: 'jabalpur' },
-      { type: 'place', name: 'Dhuandhar Falls', fact: 'Narmada disappears into smoke-like mist here.',   img: 'jabalpur'    },
-      { type: 'city',  name: 'Bandhavgarh',    fact: 'Highest density of Bengal tigers on Earth.',       img: 'bandhavgarh' },
-      { type: 'place', name: 'White Tiger',    fact: 'First white tiger was captured here in 1951.',     img: 'bandhavgarh' },
-      { type: 'place', name: 'Bandhavgarh Fort',fact: 'A 2000-year-old fort inside the jungle.',         img: 'bandhavgarh' },
-      { type: 'city',  name: 'Pachmarhi',      fact: 'Only hill station in MP — the Queen of Satpura.',  img: 'panchmarhi'  },
-      { type: 'place', name: 'Bee Falls',      fact: 'A cascading waterfall surrounded by dense forest.',img: 'panchmarhi'  },
-      { type: 'place', name: 'Pandava Caves',  fact: 'Ancient rock shelters used by the Pandavas.',      img: 'panchmarhi'  }
+      { type: 'city',  name: 'Jabalpur',        fact: 'City of marble rocks and the Narmada gorge.',        img: 'jabalpur'      },
+      { type: 'place', name: 'Bhedaghat',        fact: '100ft white marble cliffs on either side of river.', img: 'jabalpur_1'    },
+      { type: 'place', name: 'Dhuandhar Falls',  fact: 'Narmada disappears into smoke-like mist here.',     img: 'jabalpur_2'    },
+      { type: 'city',  name: 'Bandhavgarh',      fact: 'Highest density of Bengal tigers on Earth.',        img: 'bandhavgarh'   },
+      { type: 'place', name: 'White Tiger',       fact: 'First white tiger was captured here in 1951.',      img: 'bandhavgarh_1' },
+      { type: 'place', name: 'Bandhavgarh Fort',  fact: 'A 2000-year-old fort inside the jungle.',          img: 'bandhavgarh_2' },
+      { type: 'city',  name: 'Pachmarhi',         fact: 'Only hill station in MP — the Queen of Satpura.',   img: 'panchmarhi'    },
+      { type: 'place', name: 'Bee Falls',          fact: 'A cascading waterfall surrounded by dense forest.', img: 'panchmarhi_1' },
+      { type: 'place', name: 'Pandava Caves',      fact: 'Ancient rock shelters used by the Pandavas.',      img: 'panchmarhi_2'  }
     ]
   },
   A4: {
     regionFact: 'The northern plains—home to impregnable forts, temples, and the seat of ancient empires.',
     slides: [
-      { type: 'city',  name: 'Gwalior',        fact: 'The pearl of the cities of Hind — Babur.',            img: 'gwalior' },
-      { type: 'place', name: 'Gwalior Fort',   fact: 'One of the most impregnable forts in India.',         img: 'gwalior' },
-      { type: 'place', name: 'Jai Vilas',      fact: 'A palace with a dining table for 100 guests.',        img: 'gwalior' },
-      { type: 'city',  name: 'Orchha',         fact: 'A forgotten Mughal-era capital on the Betwa river.',  img: 'orcha'   },
-      { type: 'place', name: 'Ram Raja Temple',fact: 'Only temple in India where Ram is worshipped as king.',img: 'orcha'  },
-      { type: 'place', name: 'Orchha Fort',    fact: 'A palace-complex still echoing royal footsteps.',     img: 'orcha'   },
-      { type: 'city',  name: 'Bhopal',         fact: 'City of Lakes — capital of Madhya Pradesh.',          img: 'bhopal'  },
-      { type: 'place', name: 'Upper Lake',     fact: 'One of the oldest man-made lakes in India.',          img: 'bhopal'  },
-      { type: 'place', name: 'Bhojpur Temple', fact: 'An unfinished Shiva temple with a 7.5ft lingam.',     img: 'bhopal'  }
+      { type: 'city',  name: 'Gwalior',         fact: 'The pearl of the cities of Hind — Babur.',             img: 'gwalior'   },
+      { type: 'place', name: 'Gwalior Fort',     fact: 'One of the most impregnable forts in India.',          img: 'gwalior_1' },
+      { type: 'place', name: 'Jai Vilas',        fact: 'A palace with a dining table for 100 guests.',         img: 'gwalior_2' },
+      { type: 'city',  name: 'Orchha',           fact: 'A forgotten Mughal-era capital on the Betwa river.',   img: 'orcha'     },
+      { type: 'place', name: 'Ram Raja Temple',  fact: 'Only temple in India where Ram is worshipped as king.', img: 'orcha_1'  },
+      { type: 'place', name: 'Orchha Fort',      fact: 'A palace-complex still echoing royal footsteps.',      img: 'orcha_2'   },
+      { type: 'city',  name: 'Bhopal',           fact: 'City of Lakes — capital of Madhya Pradesh.',           img: 'bhopal'    },
+      { type: 'place', name: 'Upper Lake',        fact: 'One of the oldest man-made lakes in India.',          img: 'bhopal_1'  },
+      { type: 'place', name: 'Bhojpur Temple',   fact: 'An unfinished Shiva temple with a 7.5ft lingam.',      img: 'bhopal_2'  }
     ]
   }
 };
@@ -101,8 +101,21 @@ let areas = [
 function preload() {
   deadMap  = loadImage('assets/mp_dead.png');
   aliveMap = loadImage('assets/mp_alive.png');
-  
-  let allKeys = ['indore','ujjain','mandu','pench','kanha','amarkantak','jabalpur','bandhavgarh','panchmarhi','gwalior','orcha','bhopal'];
+
+  let allKeys = [
+    'indore',   'indore_1',   'indore_2',
+    'ujjain',   'ujjain_1',   'ujjain_2',
+    'mandu',    'mandu_1',    'mandu_2',
+    'pench',    'pench_1',    'pench_2',
+    'kanha',    'kanha_1',    'kanha_2',
+    'amarkantak', 'amarkantak_1', 'amarkantak_2',
+    'jabalpur', 'jabalpur_1', 'jabalpur_2',
+    'bandhavgarh', 'bandhavgarh_1', 'bandhavgarh_2',
+    'panchmarhi',  'panchmarhi_1',  'panchmarhi_2',
+    'gwalior',  'gwalior_1',  'gwalior_2',
+    'orcha',    'orcha_1',    'orcha_2',
+    'bhopal',   'bhopal_1',   'bhopal_2'
+  ];
   for (let i = 0; i < allKeys.length; i++) {
     let k = allKeys[i];
     areaImages[k] = loadImage('assets/' + k + '.png');
