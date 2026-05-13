@@ -3,7 +3,7 @@ let isAlive = false;
 let activeArea = null;
 let phase = 0;
 let uiIndex = 0;
-//ui slides
+let currentMusic;
 let areaContent = {
   A1: ["Indore – Food capital", "Ujjain – Spiritual hub", "Mandu – Historic forts"],
   A2: ["Pench – Tiger reserve", "Kanha – Dense forests", "Amarkantak – River origin"],
@@ -41,10 +41,10 @@ let storySlides = [
   }
 ];
 let areas = [
-  { name: 'WEST MP',  key: 'A1', x: 200, y: 320, clicks: 0, alive: false },
-  { name: 'SOUTH MP', key: 'A2', x: 420, y: 420, clicks: 0, alive: false },
-  { name: 'EAST MP',  key: 'A3', x: 550, y: 320, clicks: 0, alive: false },
-  { name: 'NORTH MP', key: 'A4', x: 350, y: 150, clicks: 0, alive: false }
+  { name: 'WEST MP',  key: 'A1', x: 200, y: 320, clicks: 0, alive: false, music: 'WEST.mpeg' },
+  { name: 'SOUTH MP', key: 'A2', x: 420, y: 420, clicks: 0, alive: false, music: 'NORMAL.mpeg' },
+  { name: 'EAST MP',  key: 'A3', x: 550, y: 320, clicks: 0, alive: false, music: 'NORMAL.mpeg' },
+  { name: 'NORTH MP', key: 'A4', x: 350, y: 150, clicks: 0, alive: false, music: 'NORTH.mpeg' }
 ];
 
 function preload() {
@@ -142,6 +142,14 @@ function mousePressed() {
         a.alive = true;
         isAlive = areas.every(a => a.alive);
         activeArea = a;
+        //MUSIC
+        if (currentMusic) {
+        currentMusic.stop();
+    }
+
+        currentMusic = createAudio('assets/' + a.music);
+        currentMusic.play();
+        //.................
         uiIndex = 0; // reset slide index on open
       }
     }
@@ -152,6 +160,9 @@ function keyPressed() {
   if (key === 'q' || key === 'Q') {
     activeArea = null;
   }
+  if (currentMusic) {
+  currentMusic.stop();
+}
 }
 
 function drawStory(idx) {
