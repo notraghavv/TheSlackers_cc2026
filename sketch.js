@@ -2,6 +2,17 @@ let deadMap, aliveMap;
 let isAlive = false;
 let activeArea = null;
 let phase = 0;
+let uiIndex = 0;
+//ui slides
+let areaContent = {
+  A1: ["Indore – Food capital", "Ujjain – Spiritual hub", "Mandu – Historic forts"],
+  A2: ["Pench – Tiger reserve", "Kanha – Dense forests", "Amarkantak – River origin"],
+  A3: ["Jabalpur – Marble rocks", "Bandhavgarh – Wildlife", "Amarkantak – Hills"],
+  A4: ["Gwalior – Fort city", "Orchha – Heritage temples", "Shivpuri – Natural beauty"]
+};
+//
+
+
 
 let storySlides = [
   {
@@ -30,10 +41,10 @@ let storySlides = [
   }
 ];
 let areas = [
-  { name: 'A1', x: 300, y: 320, clicks: 0, alive: false },
-  { name: 'A2', x: 420, y: 260, clicks: 0, alive: false },
-  { name: 'A3', x: 550, y: 320, clicks: 0, alive: false },
-  { name: 'A4', x: 420, y: 150, clicks: 0, alive: false }
+  { name: 'WEST MP',  key: 'A1', x: 200, y: 320, clicks: 0, alive: false },
+  { name: 'SOUTH MP', key: 'A2', x: 420, y: 420, clicks: 0, alive: false },
+  { name: 'EAST MP',  key: 'A3', x: 550, y: 320, clicks: 0, alive: false },
+  { name: 'NORTH MP', key: 'A4', x: 350, y: 150, clicks: 0, alive: false }
 ];
 
 function preload() {
@@ -52,14 +63,10 @@ function draw() {
   return;
 }
   //ui popup
-   if (activeArea) {
-    background(255);
-    fill(0);
-    textAlign(CENTER, CENTER);
-    textSize(24);
-    text("underwork", width / 2, height / 2);
-    return;
-  }
+  if (activeArea) {
+  drawAreaUI(activeArea);
+  return;
+}
   ///
   background(10);
 
@@ -102,23 +109,40 @@ function mousePressed() {
 
   // story slides
   if (phase <= 2) {
-    phase++;   // move to next slide
-
-    // stop at map (phase 3)
+    phase++;
     if (phase > 3) phase = 3;
-
     return;
   }
 
+  // UI is open — handle slide navigation only
+  if (activeArea) {
+    let slides = areaContent[activeArea.key] || [];
+    let total = slides.length;
+
+    // Left arrow hit zone
+    if (mouseX > width / 2 - 130 && mouseX < width / 2 - 70 &&
+        mouseY > 300 && mouseY < 360) {
+      uiIndex = max(0, uiIndex - 1);
+    }
+
+    // Right arrow hit zone
+    if (mouseX > width / 2 + 70 && mouseX < width / 2 + 130 &&
+        mouseY > 300 && mouseY < 360) {
+      uiIndex = min(total - 1, uiIndex + 1);
+    }
+
+    return; // block all map clicks while UI is open
+  }
+
+  // Map click — activate area node
   for (let a of areas) {
     if (dist(mouseX, mouseY, a.x, a.y) < 40) {
-
       a.clicks++;
-
       if (a.clicks >= 3) {
         a.alive = true;
-        isAlive = true;
+        isAlive = areas.every(a => a.alive);
         activeArea = a;
+        uiIndex = 0; // reset slide index on open
       }
     }
   }
@@ -157,4 +181,55 @@ function drawStory(idx) {
 textSize(12);
 fill(180);
 text("Click to continue →", width/2, height - 40);
+}
+
+function drawAreaUI(area) {
+  background(10, 10, 15);
+
+  let slides = areaContent[area.key] || ["No content yet."];
+  let total = slides.length;
+
+  // Area name header
+  fill(255);
+  textAlign(CENTER, CENTER);
+  textSize(28);
+  text(area.name, width / 2, 60);
+
+  // Image placeholder box
+  let boxW = 400, boxH = 220;
+  let boxX = width / 2 - boxW / 2;
+  let boxY = 100;
+  stroke(100);
+  strokeWeight(1);
+  fill(30);
+  rect(boxX, boxY, boxW, boxH, 8);
+  noStroke();
+  fill(80);
+  textSize(14);
+  text("[ image placeholder ]", width / 2, boxY + boxH / 2);
+
+  // Slide content
+  fill(220);
+  textSize(16);
+  text(slides[uiIndex], width / 2, boxY + boxH + 40);
+
+  // Slide counter
+  fill(120);
+  textSize(12);
+  text((uiIndex + 1) + " / " + total, width / 2, boxY + boxH + 65);
+
+  // Left arrow
+  fill(uiIndex > 0 ? 255 : 60);
+  textSize(28);
+  textAlign(CENTER, CENTER);
+  text("<", width / 2 - 100, boxY + boxH + 40);
+
+  // Right arrow
+  fill(uiIndex < total - 1 ? 255 : 60);
+  text(">", width / 2 + 100, boxY + boxH + 40);
+
+  // Close hint
+  fill(100);
+  textSize(11);
+  text("press Q to close", width / 2, height - 20);
 }
