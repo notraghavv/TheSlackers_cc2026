@@ -6,7 +6,7 @@ let isAllAlive = false;
 let activeArea = null;
 let phase = 0;
 let currentMusic = null;
-
+let bgmMusic = null;
 // background wave offset
 let waveOffset = 0;
 
@@ -91,10 +91,10 @@ let storySlides = [
 
 // map zones
 let areas = [
-  { name: 'WEST MP',  key: 'A1', xPercent: 0.18, yPercent: 0.60, hackProgress: 0, isAlive: false, music: 'WEST.mpeg'   },
+  { name: 'WEST MP',  key: 'A1', xPercent: 0.18, yPercent: 0.60, hackProgress: 0, isAlive: false, music: 'NORMAL.mpeg'   },
   { name: 'SOUTH MP', key: 'A2', xPercent: 0.55, yPercent: 0.82, hackProgress: 0, isAlive: false, music: 'NORMAL.mpeg' },
   { name: 'EAST MP',  key: 'A3', xPercent: 0.76, yPercent: 0.58, hackProgress: 0, isAlive: false, music: 'NORMAL.mpeg' },
-  { name: 'NORTH MP', key: 'A4', xPercent: 0.42, yPercent: 0.25, hackProgress: 0, isAlive: false, music: 'NORTH.mpeg'  }
+  { name: 'NORTH MP', key: 'A4', xPercent: 0.42, yPercent: 0.25, hackProgress: 0, isAlive: false, music: 'NORMAL.mpeg'  }
 ];
 
 // load stuff before starting
@@ -302,10 +302,12 @@ function triggerRevival(area) {
   sliderOffset = 0; 
   sliderTarget = 0;
   
-  if (currentMusic) {
-    currentMusic.stop();
-  }
+  // Pause BGM, stop any prior node music
+  if (bgmMusic) bgmMusic.pause();
+  if (currentMusic) currentMusic.stop();
+
   currentMusic = createAudio('assets/' + area.music); 
+  currentMusic.loop();
   currentMusic.play();
 }
 
@@ -737,7 +739,15 @@ function drawRoadAndVehicle(slides, total, roadY, displayIndex) {
 // mouse click events
 function mousePressed() {
   if (phase < 4) { 
-    phase++; 
+    phase++;
+    
+    // START BGM when map phase begins
+    if (phase === 4 && !bgmMusic) {
+      bgmMusic = createAudio('assets/bgm.mpeg');
+      bgmMusic.loop();
+      bgmMusic.play();
+    }
+    
     return; 
   }
   if (activeArea != null) return; 
@@ -780,4 +790,5 @@ function keyPressed() {
       currentMusic = null; 
     }
   }
+  if (bgmMusic) bgmMusic.play();
 }
