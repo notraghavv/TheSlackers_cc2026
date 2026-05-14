@@ -783,12 +783,12 @@ function keyPressed() {
   }
 
   // quit to map
-  if (key === 'q' || key === 'Q') { 
-    activeArea = null; 
-    if (currentMusic) { 
-      currentMusic.stop(); 
-      currentMusic = null; 
-    }
+ if (key === 'q' || key === 'Q') { 
+  activeArea = null; 
+  if (currentMusic) { 
+    currentMusic.stop(); 
+    currentMusic = null; 
   }
-  if (bgmMusic) bgmMusic.play();
+  if (bgmMusic) bgmMusic.play(); 
+}
 }
